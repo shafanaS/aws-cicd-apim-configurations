@@ -37,7 +37,7 @@ class apim::params {
     'repository/conf/api-manager.xml',
     'repository/conf/datasources/master-datasources.xml',
     'repository/conf/carbon.xml',
-    'repository/conf/identity/identity.xml'
+    'repository/conf/identity/identity.xml',
     'repository/conf/user-mgt.xml',
     'repository/conf/axis2/axis2.xml',
     'repository/deployment/server/jaggeryapps/store/site/conf/site.json',
@@ -63,8 +63,8 @@ class apim::params {
     $stream_processor_restapi_username = '${admin.username}'
     $stream_processor_restapi_password = '${admin.password}'
 
-    $api_store_url = 'https://localhost:${mgt.transport.https.port}/store'
-    $api_store_server_url = 'https://ALB_DNS_NAME:${mgt.transport.https.port}${carbon.context}services/'
+    $api_store_url = 'https://ALB_DNS_NAME:${mgt.transport.https.port}/store'
+    $api_store_server_url = 'https://localhost:${mgt.transport.https.port}${carbon.context}services/'
     $api_store_username = '${admin.username}'
     $api_store_password = '${admin.password}'
     $api_publisher_url = 'https://localhost:${mgt.transport.https.port}/publisher'
