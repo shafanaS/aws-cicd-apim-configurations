@@ -24,7 +24,6 @@ class apim::params {
   $carbon_home="/var/lib/jenkins/workspace/${product}-${product_version}/${module_name}/"
   $start_script_template="bin/wso2server.sh"
   $mysql_connector="mysql-connector-java-5.1.41-bin.jar"
-  $localhost = 'ALB_DNS_NAME'
   $puppet_modules_path ="/var/lib/jenkins/workspace/${product}-${product_version}/configs/modules"
 
   $jvmxms = '256m'
@@ -52,7 +51,7 @@ class apim::params {
     $api_gateway_url = 'https://localhost:${mgt.transport.https.port}${carbon.context}services/'
     $api_gateway_username = '${admin.username}'
     $api_gateway_password = '${admin.password}'
-    $api_gateway_endpoint = 'http://ALB_DNS_NAME:8280,https://ALB_DNS_NAME:8243'
+    $api_gateway_endpoint = 'http://ALB_DNS_NAME:${http.nio.port},https://ALB_DNS_NAME:${https.nio.port}'
     $api_gateway_ws_endpoint = 'ws://${carbon.local.ip}:9099'
 
     $analytics_enable = 'false'
@@ -64,10 +63,10 @@ class apim::params {
     $stream_processor_restapi_password = '${admin.password}'
 
     $api_store_url = 'https://ALB_DNS_NAME:${mgt.transport.https.port}/store'
-    $api_store_server_url = 'https://localhost:${mgt.transport.https.port}${carbon.context}services/'
+    $api_store_server_url = 'https://ALB_DNS_NAME:${mgt.transport.https.port}${carbon.context}services/'
     $api_store_username = '${admin.username}'
     $api_store_password = '${admin.password}'
-    $api_publisher_url = 'https://localhost:${mgt.transport.https.port}/publisher'
+    $api_publisher_url = 'https://ALB_DNS_NAME:${mgt.transport.https.port}/publisher'
 
     # ----- Master-datasources config params -----
     $wso2carbon_db_url = 'jdbc:h2:./repository/database/WSO2CARBON_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000'
@@ -127,7 +126,7 @@ class apim::params {
     $admin_password = 'admin'
 
   # ----- axis2.xml config params -----
-  $clustering_enabled = 'true'
+  $clustering_enabled = 'false'
   $aws_access_key = 'ACCESS_KEY'
   $aws_secret_key = 'SECRET_KEY'
   $aws_region = 'REGION_NAME'
