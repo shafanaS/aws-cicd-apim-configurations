@@ -14,7 +14,15 @@
 #  limitations under the License.
 # ----------------------------------------------------------------------------
 
-# Class: apim::custom
-# This class is reserved to run custom user code before starting the server.
-class apim::custom {
+# Class apim::startserver
+# Starts the server as a service in the final stage.
+class apim::startserver (
+  $service_name = $apim::params::service_name
+)
+  inherits apim::params {
+
+  # service { $service_name:
+  #   ensure => running,
+  #   enable => true,
+  # }
 }
